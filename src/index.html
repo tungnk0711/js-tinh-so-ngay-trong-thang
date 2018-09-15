@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var div = document.createElement('div');
+    div.id = 'content';
+    div.style.width = '700px';
+    div.style.height = '300px';
+    div.style.border = '1px solid #333';
+    div.style.backgroundColor = '#F5F5F5';
+
+    var title = document.createElement('h1');
+    title.style.textAlign = 'center';
+    title.innerHTML = 'Chuong Trinh Tinh So Ngay Trong Thang';
+
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'txtMonth';
+    input.style.marginLeft = '100px';
+
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.id = 'btnCalculate';
+    button.innerHTML = 'Tinh so ngay';
+    button.style.marginLeft = '10px';
+    button.style.cursor = 'pointer';
+
+    var res = document.createElement('label');
+    res.id = 'lblres';
+    res.innerHTML = 'result';
+    res.style.marginLeft = '10px';
+
+    div.appendChild(title);
+    div.appendChild(input);
+    div.appendChild(button);
+    div.appendChild(res);
+    document.getElementsByTagName('body')[0].appendChild(div);
+
+    var btnCalculator = document.getElementById('btnCalculate');
+    btnCalculator.addEventListener('click', function () {
+        //alert('OK');
+        var month = document.getElementById('txtMonth');
+        //alert(month.value);
+        var res = document.getElementById('lblres');
+        switch (month.value) {
+            case '1':
+            case '3':
+            case '5':
+            case '7':
+            case '8':
+            case '10':
+            case '12':
+                res.innerHTML = 'Thang co 31 ngay.';
+                break;
+            case '2':
+                res.innerHTML = 'Thang co 28/29 ngay.';
+                break;
+            case '4':
+            case '6':
+            case '9':
+            case '11':
+                res.innerHTML = 'Thang co 30 ngay.';
+                break;
+            default:
+                res.innerHTML = 'Nhap loi, kiem tra lai.';
+        }
+    })
+
+
+</script>
+</body>
+</html>
